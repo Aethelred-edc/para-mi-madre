@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#641220" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="description" content="Un regalo interactivo especial para el Día de las Madres" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <title>Un Regalo Para Ti</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+  <div id="preloader" class="preloader">
+    <div class="preloader__rose">
+      <canvas id="preloader-canvas" width="120" height="120"></canvas>
+    </div>
+    <p class="preloader__text">Preparando algo especial...</p>
+  </div>
+
+  <div id="app" class="app" aria-hidden="true">
+    <div class="floating-hearts" id="floating-hearts" aria-hidden="true"></div>
+    <div class="petal-rain" id="petal-rain" aria-hidden="true"></div>
+
+    <section id="section-intro" class="section section--intro active" aria-label="Bienvenida">
+      <div class="intro__ornament intro__ornament--top" aria-hidden="true">✦</div>
+      <canvas id="rose-canvas" class="rose-canvas" aria-hidden="true"></canvas>
+      <div class="intro__content">
+        <p class="intro__greeting" id="intro-greeting">Para ti, con amor</p>
+        <h1 class="intro__title" id="intro-title">Con Todo el Amor</h1>
+        <p class="intro__subtitle" id="intro-subtitle">Un momento solo para ti te espera aquí</p>
+        <button class="btn btn--primary" id="btn-start" aria-label="Comenzar la experiencia">
+          <span class="btn__text">Comenzar</span>
+          <span class="btn__shimmer" aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="intro__ornament intro__ornament--bottom" aria-hidden="true">✦</div>
+    </section>
+
+    <section id="section-poem" class="section section--poem" aria-label="Poema" aria-hidden="true">
+      <canvas id="galaxy-canvas" class="galaxy-canvas" aria-hidden="true"></canvas>
+      <div class="poem__wrapper">
+        <div class="poem__decoration" aria-hidden="true">
+          <span class="poem__line poem__line--left"></span>
+          <span class="poem__icon">❧</span>
+          <span class="poem__line poem__line--right"></span>
+        </div>
+        <div class="poem__content">
+          <p class="poem__label" id="poem-label">— Con Amor</p>
+          <blockquote class="poem__text" id="poem-text"></blockquote>
+          <p class="poem__author" id="poem-author"></p>
+        </div>
+        <div class="poem__decoration poem__decoration--bottom" aria-hidden="true">
+          <span class="poem__line poem__line--left"></span>
+          <span class="poem__icon">❧</span>
+          <span class="poem__line poem__line--right"></span>
+        </div>
+        <button class="btn btn--secondary" id="btn-to-game" aria-label="Continuar al reto">
+          <span class="btn__text">Continuar →</span>
+        </button>
+      </div>
+    </section>
+
+    <section id="section-game" class="section section--game" aria-label="Reto interactivo" aria-hidden="true">
+      <div class="game__wrapper">
+        <h2 class="game__title">Un Pequeño Reto</h2>
+        <p class="game__instruction" id="game-instruction"></p>
+        <div class="game__input-area" id="game-input-area"></div>
+        <p class="game__hint" id="game-hint"></p>
+        <button class="btn btn--primary" id="btn-validate" aria-label="Validar respuesta">
+          <span class="btn__text">Verificar ✓</span>
+        </button>
+        <p class="game__feedback" id="game-feedback" role="alert" aria-live="polite"></p>
+        <div class="game__progress" id="game-progress" aria-label="Progreso">
+          <div class="game__progress-bar" id="game-progress-bar"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-reward" class="section section--reward" aria-label="Recompensa" aria-hidden="true">
+      <div id="reward-petals" class="petal-rain petal-rain--reward" aria-hidden="true"></div>
+      <canvas id="confetti-canvas" class="confetti-canvas" aria-hidden="true"></canvas>
+      <canvas id="mandala-canvas" class="reward__mandala-hero" aria-hidden="true"></canvas>
+      <div class="reward__wrapper">
+        <div class="reward__inner">
+          <div class="reward__ornament" aria-hidden="true">✦ ✦ ✦</div>
+          <h2 class="reward__title" id="reward-title">¡Lo Lograste!</h2>
+          <p class="reward__message" id="reward-message"></p>
+          <div class="reward__roses" id="reward-roses" aria-hidden="true">
+            <canvas id="reward-canvas" class="reward__canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="audio-control" id="audio-control" aria-label="Control de audio">
+    <button class="audio-control__btn" id="audio-toggle" aria-label="Alternar música" aria-pressed="false">
+      <span class="audio-control__icon">♩</span>
+    </button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

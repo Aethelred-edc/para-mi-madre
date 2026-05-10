@@ -1,0 +1,268 @@
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  background: var(--vino-dark);
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.preloader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader__rose {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  animation: spinSlow 8s linear infinite;
+}
+
+.preloader__text {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--oro);
+  opacity: 0.7;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 2.5rem;
+  border: none;
+  border-radius: 1px;
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  min-width: 180px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--oro);
+  outline-offset: 3px;
+}
+
+.btn--primary {
+  background: transparent;
+  color: var(--blanco);
+  border: 1px solid rgba(201, 168, 76, 0.5);
+}
+
+.btn--primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(201, 168, 76, 0.1), rgba(100, 18, 32, 0.3));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.btn--primary:hover::before,
+.btn--primary:focus-visible::before {
+  opacity: 1;
+}
+
+.btn--primary:hover,
+.btn--primary:focus-visible {
+  border-color: var(--oro);
+  color: var(--oro-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(201, 168, 76, 0.2);
+}
+
+.btn--primary:active {
+  transform: translateY(0);
+}
+
+.btn__shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(201, 168, 76, 0.15) 50%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.btn--secondary {
+  background: transparent;
+  color: var(--crema);
+  border: none;
+  padding: 0.6rem 1.5rem;
+  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+  min-width: auto;
+}
+
+.btn--secondary::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 1px;
+  background: var(--oro);
+  transition: width 0.4s ease;
+}
+
+.btn--secondary:hover::after,
+.btn--secondary:focus-visible::after {
+  width: 80%;
+}
+
+.btn--secondary:hover,
+.btn--secondary:focus-visible {
+  color: var(--oro-light);
+}
+
+.btn--gold {
+  background: linear-gradient(135deg, var(--oro-dark), var(--oro), var(--oro-light));
+  color: var(--vino-dark);
+  border: none;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+}
+
+.btn--gold::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--oro-light), var(--oro), var(--oro-dark));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.btn--gold:hover::before,
+.btn--gold:focus-visible::before {
+  opacity: 1;
+}
+
+.btn--gold:hover,
+.btn--gold:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px var(--sombra-oro);
+}
+
+.btn--gold:active {
+  transform: translateY(0);
+}
+
+.btn__text {
+  position: relative;
+  z-index: 1;
+}
+
+.date-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.4);
+  color: var(--blanco);
+  font-family: var(--font-body);
+  font-size: 1.8rem;
+  text-align: center;
+  padding: 0.5rem 0;
+  width: 160px;
+  transition: var(--transition-fast);
+  letter-spacing: 0.1em;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}
+
+.date-input::-webkit-outer-spin-button,
+.date-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.date-input::placeholder {
+  color: rgba(248, 244, 238, 0.3);
+  font-size: 1rem;
+}
+
+.date-input:focus {
+  outline: none;
+  border-bottom-color: var(--oro);
+  color: var(--oro-light);
+}
+
+.date-input-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.date-separator {
+  font-family: var(--font-display);
+  color: var(--oro);
+  font-size: 1.5rem;
+  opacity: 0.6;
+}
+
+.puzzle-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  width: 100%;
+  max-width: 380px;
+}
+
+.puzzle-option {
+  padding: 0.9rem 1rem;
+  background: rgba(248, 244, 238, 0.04);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 1px;
+  color: var(--crema);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.puzzle-option:hover,
+.puzzle-option:focus-visible {
+  background: rgba(201, 168, 76, 0.1);
+  border-color: var(--oro);
+  color: var(--oro-light);
+}
+
+.puzzle-option.selected {
+  background: rgba(201, 168, 76, 0.15);
+  border-color: var(--oro);
+  color: var(--oro-light);
+}
+
+.puzzle-option.correct {
+  background: rgba(201, 168, 76, 0.2);
+  border-color: var(--oro-light);
+  color: var(--oro-light);
+}
+
+.puzzle-option.wrong {
+  background: rgba(232, 130, 154, 0.1);
+  border-color: rgba(232, 130, 154, 0.4);
+  color: rgba(232, 130, 154, 0.8);
+}
